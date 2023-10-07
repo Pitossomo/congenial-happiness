@@ -5,6 +5,13 @@ var snake = [{x: 0, y: 0}];
 var food = {x: 0, y: 0};
 var direction = 'right';
 
+const DIRECTION_MAP = {
+  right: head => head.x += blockSize,
+  left: head => head.x -= blockSize,
+  up: head => head.y -= blockSize,
+  down: head => head.y += blockSize
+};
+
 function generateFood() {
   food.x = Math.floor(Math.random() * (canvas.width / blockSize)) * blockSize;
   food.y = Math.floor(Math.random() * (canvas.height / blockSize)) * blockSize;
@@ -29,10 +36,7 @@ function update() {
   // Move snake
   var head = {x: snake[0].x, y: snake[0].y};
 
-  if (direction === 'right') head.x += blockSize;
-  if (direction === 'left') head.x -= blockSize;
-  if (direction === 'up') head.y -= blockSize;
-  if (direction === 'down') head.y += blockSize;
+  DIRECTION_MAP[direction](head)
 
   snake.unshift(head);
 
