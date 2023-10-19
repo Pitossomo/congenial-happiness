@@ -12,6 +12,20 @@ const DIRECTION_MAP = {
   down: head => head.y += blockSize
 };
 
+const DIRECTION_FROM_KEY_CODE = {
+  37: 'left',
+  38: 'down',
+  39: 'right',
+  40: 'up'
+}
+
+const OPPOSITE_DIRECTION = {
+  'left': 'right',
+  'right': 'left',
+  'down': 'up',
+  'up': 'down',
+}    
+
 function generateFood() {
   food.x = Math.floor(Math.random() * (canvas.width / blockSize)) * blockSize;
   food.y = Math.floor(Math.random() * (canvas.height / blockSize)) * blockSize;
@@ -67,10 +81,8 @@ function update() {
 
 // Handle keyboard input
 document.addEventListener('keydown', function(event) {
-  if (event.keyCode === 37 && direction !== 'right') direction = 'left';
-  if (event.keyCode === 38 && direction !== 'down') direction = 'up';
-  if (event.keyCode === 39 && direction !== 'left') direction = 'right';
-  if (event.keyCode === 40 && direction !== 'up') direction = 'down';
+  const newDirection = DIRECTION_FROM_KEY_CODE[event.keyCode]
+  if (direction !== OPPPOSITE_DIRECTION[newDirection]) direction = newDirection;
 });
 
 generateFood();
