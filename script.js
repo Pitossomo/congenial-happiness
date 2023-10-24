@@ -45,6 +45,11 @@ function draw() {
   // Draw food
   context.fillStyle = 'red';
   context.fillRect(food.x, food.y, blockSize, blockSize);
+
+  // Draw score counter
+  context.fillStyle = 'black';
+  context.font = '20px Arial';
+  context.fillText('Score: ' + score, 10, 20);
 }
 
 function update() {
