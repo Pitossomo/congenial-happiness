@@ -87,8 +87,8 @@ function update() {
 // Handle keyboard input
 document.addEventListener('keydown', function(event) {
   const newDirection = DIRECTION_FROM_KEY_CODE[event.keyCode]
-  if (direction !== OPPPOSITE_DIRECTION[newDirection]) direction = newDirection;
-  console.log(newDirection + " ? " + OPPPOSITE_DIRECTION[newDirection])
+  if (direction !== OPPOSITE_DIRECTION[newDirection]) direction = newDirection;
+  console.log(newDirection + " ? " + OPPOSITE_DIRECTION[newDirection])
 });
 
 generateFood();
