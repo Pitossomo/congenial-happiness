@@ -15,9 +15,9 @@ const DIRECTION_MAP = {
 
 const DIRECTION_FROM_KEY_CODE = {
   37: 'left',
-  38: 'down',
+  38: 'up',
   39: 'right',
-  40: 'up'
+  40: 'down'
 }
 
 const OPPOSITE_DIRECTION = {
