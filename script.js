@@ -1,6 +1,6 @@
 var canvas = document.getElementById('gameCanvas');
 var context = canvas.getContext('2d');
-var blockSize = 20;
+var blockSize = 10;
 var snake = [{x: 0, y: 0}];
 var food = {x: 0, y: 0};
 var score = 0;
