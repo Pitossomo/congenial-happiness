@@ -55,9 +55,7 @@ function draw() {
 function update() {
   // Move snake
   var head = {x: snake[0].x, y: snake[0].y};
-
   DIRECTION_MAP[direction](head)
-
   snake.unshift(head);
 
   // Check collision with food
@@ -90,6 +88,7 @@ function update() {
 document.addEventListener('keydown', function(event) {
   const newDirection = DIRECTION_FROM_KEY_CODE[event.keyCode]
   if (direction !== OPPPOSITE_DIRECTION[newDirection]) direction = newDirection;
+  console.log(newDirection + " ? " + OPPPOSITE_DIRECTION[newDirection])
 });
 
 generateFood();
