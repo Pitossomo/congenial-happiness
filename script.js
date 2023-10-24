@@ -3,6 +3,7 @@ var context = canvas.getContext('2d');
 var blockSize = 20;
 var snake = [{x: 0, y: 0}];
 var food = {x: 0, y: 0};
+var score = 0;
 var direction = 'right';
 
 const DIRECTION_MAP = {
@@ -57,6 +58,7 @@ function update() {
   // Check collision with food
   if (head.x === food.x && head.y === food.y) {
     generateFood();
+    score++
   } else {
     snake.pop();
   }
@@ -64,14 +66,14 @@ function update() {
   // Check collision with walls
   if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
     clearInterval(gameLoop);
-    alert('Game over!');
+    alert('Game over! Your score: ' + score);
   }
 
   // Check collision with self
   for (var i = 1; i < snake.length; i++) {
     if (head.x === snake[i].x && head.y === snake[i].y) {
       clearInterval(gameLoop);
-      alert('Game over!');
+      alert('Game over! Your score: ' + score);
       break;
     }
   }
